@@ -1,0 +1,46 @@
+<div class="col-md-12">
+  <p>Register profile:</p>
+<form>
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email" [(ngModel)]="user.email" placeholder="Email" name="email" class="form-control" id="email">
+  </div>
+
+  <div class="form-group">
+    <label for="firstName">First Name:</label>
+    <input [(ngModel)]="user.firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName">
+  </div>
+
+  <div class="form-group">
+    <label for="lastName">Last Name:</label>
+   <input [(ngModel)]="user.lastName" placeholder="Last name" name="lastName" class="form-control" id="lastName">
+  </div>
+
+  <button class="btn btn-success" (click)="createUser()">Create</button>
+</form>
+</div>
+
+<br><br>
+<div class="col-md-12">
+<p class="bg-info text-white">Profile management</p>
+<table class="table  table-bordered" style="border: 1px solid #ddd !important;">
+  <thead>
+  <tr>
+    <th class="hidden">Id</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th colspan="2">Action</th>
+  </tr>
+</thead>
+  <tbody>
+  <tr *ngFor="let user of users">
+    <td>{{user.userId}}</td>
+    <td>{{user.firstName}}</td>
+    <td>{{user.lastName}}</td>
+    <td>{{user.email}}</td>
+    <td><button class="btn btn-info" (click)="updateUser(user)">Edit</button> <span style="width:15px;"> </span><button class="btn btn-danger" (click)="deleteUser(user)">Delete</button></td>
+  </tr>
+  </tbody>
+</table>
+</div>
