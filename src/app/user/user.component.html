@@ -3,17 +3,24 @@
 <form>
   <div class="form-group">
     <label for="email">Email address:</label>
-    <input type="email" [(ngModel)]="user.email" placeholder="Email" name="email" class="form-control" id="email">
+    <input type="email" [(ngModel)]="user.email" placeholder="Email" name="email" class="form-control" id="email" required>
+    <!--<div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+       <div *ngIf="email.errors.required">Name is required.</div>
+       <div *ngIf="email.errors.minlength">Name must be at least 4 characters long.</div>
+       <div *ngIf="email.errors.forbiddenName">Name cannot be Bob.</div>
+    </div> -->
   </div>
 
   <div class="form-group">
     <label for="firstName">First Name:</label>
-    <input [(ngModel)]="user.firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName">
+    <input [(ngModel)]="user.firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName" required>
+   
   </div>
 
   <div class="form-group">
     <label for="lastName">Last Name:</label>
-   <input [(ngModel)]="user.lastName" placeholder="Last name" name="lastName" class="form-control" id="lastName">
+   <input [(ngModel)]="user.lastName" placeholder="Last name" name="lastName" class="form-control" id="lastName" required>
+   
   </div>
 
   <button class="btn btn-success" (click)="createUser()">Create</button>
@@ -23,7 +30,7 @@
 <br><br>
 <div class="col-md-12">
 <p class="bg-info text-white">Profile management</p>
-<table class="table  table-bordered" style="border: 1px solid #ddd !important;">
+<table class="datatable table table-striped table-bordered"  style="border: 1px solid #ddd !important;">
   <thead>
   <tr>
     <th class="hidden">Id</th>
@@ -39,8 +46,16 @@
     <td>{{user.firstName}}</td>
     <td>{{user.lastName}}</td>
     <td>{{user.email}}</td>
-    <td><button class="btn btn-info" (click)="updateUser(user)">Edit</button> <span style="width:15px;"> </span><button class="btn btn-danger" (click)="deleteUser(user)">Delete</button></td>
+    <td><button class="btn btn-info" (click)="updateUser(user)">Edit</button></td>
+    <td><button class="btn btn-danger" (click)="deleteUser(user)">Delete</button></td>
   </tr>
   </tbody>
 </table>
+<!--<ul class="pagination">
+  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+  <li class="page-item"><a class="page-link" href="#">1</a></li>
+  <li class="page-item"><a class="page-link" href="#">2</a></li>
+  <li class="page-item"><a class="page-link" href="#">3</a></li>
+  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+</ul>-->
 </div>

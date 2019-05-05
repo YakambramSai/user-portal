@@ -15,8 +15,13 @@ export class EditUserComponent  {
   }
 
   ngOnInit() {
-    this.route.params.subscribe( params => console.log(params) );
-    console.log(this.user);
+
+    this.user.userId = this.route.snapshot.params['userId'];
+    this.user.email = this.route.snapshot.params['email'];
+    this.user.firstName = this.route.snapshot.params['firstName'];
+    this.user.lastName = this.route.snapshot.params['lastName'];
+    
+    
   }
 
   
